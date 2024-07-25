@@ -7,8 +7,13 @@ application:
 
 imagePullPolicy: IfNotPresent
 
-nginxService:
-  serviceName: nginx-service
-  servicePort: 80
-  imageName: nginx
-  imageTag: 1.19.0
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: 1.19.0
+
+service:
+  name: nginx-service
+  port: 80
+  type: ClusterIP

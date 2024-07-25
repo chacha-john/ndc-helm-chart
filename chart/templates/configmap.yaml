@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.nginxService.serviceName }}-configfile
+  name: {{ .Values.service.name }}-configfile
 data:
   nginx.conf: |
     server {

@@ -2,24 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: {{ .Values.nginxService.serviceName }}
-  name: {{ .Values.nginxService.serviceName }}
+    service: {{ .Values.service.name }}
+  name: {{ .Values.service.name }}
 spec:
   selector:
     matchLabels:
-      service: {{ .Values.nginxService.serviceName }}
+      service: {{ .Values.service.name }}
   template:
     metadata:
       labels:
         app: {{ .Values.application.name }}
-        service: {{ .Values.nginxService.serviceName }}
+        service: {{ .Values.service.name }}
     spec:
+      replicas: {{ .Values.replicaCount }}
       containers:
-      - name: {{ .Values.nginxService.serviceName }}
-        image: "{{ .Values.nginxService.imageName }}:{{ .Values.nginxService.imageTag }}"
+      - name: {{ .Values.service.name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         ports:
-        - containerPort: {{ .Values.nginxService.servicePort }}
+        - containerPort: {{ .Values.service.port }}
         resources:
           limits:
             memory: "96Mi"
