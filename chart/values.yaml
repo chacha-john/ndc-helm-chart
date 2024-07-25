@@ -1,0 +1,14 @@
+application:
+  name: nairobi-devops
+  namespace: nairobi-devops
+  labels:
+    app: nairobi-devops
+    release: nairobi-devops-beta
+
+imagePullPolicy: IfNotPresent
+
+nginxService:
+  serviceName: nginx-service
+  servicePort: 80
+  imageName: nginx
+  imageTag: 1.19.0

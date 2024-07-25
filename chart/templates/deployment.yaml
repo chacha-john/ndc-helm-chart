@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: {{ .Values.nginxService.serviceName }}
+  name: {{ .Values.nginxService.serviceName }}
+spec:
+  selector:
+    matchLabels:
+      service: {{ .Values.nginxService.serviceName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.application.name }}
+        service: {{ .Values.nginxService.serviceName }}
+    spec:
+      containers:
+      - name: {{ .Values.nginxService.serviceName }}
+        image: "{{ .Values.nginxService.imageName }}:{{ .Values.nginxService.imageTag }}"
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        ports:
+        - containerPort: {{ .Values.nginxService.servicePort }}
+        resources:
+          limits:
+            memory: "96Mi"
