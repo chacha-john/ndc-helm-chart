@@ -16,7 +16,7 @@ image:
 service:
   name: web-service
   port: 8085
-  type: ClusterIP
+  type: NodePort
 
 config:
   key1: value1
