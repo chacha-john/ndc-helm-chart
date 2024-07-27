@@ -15,7 +15,7 @@ image:
 
 service:
   name: web-service
-  port: 80
+  port: 8085
   type: ClusterIP
 
 config:
