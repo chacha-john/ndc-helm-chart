@@ -5,6 +5,7 @@ metadata:
     service: {{ .Values.service.name }}
   name: {{ .Values.service.name }}
 spec:
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       service: {{ .Values.service.name }}
@@ -14,7 +15,6 @@ spec:
         app: {{ .Values.application.name }}
         service: {{ .Values.service.name }}
     spec:
-      replicas: {{ .Values.replicaCount }}
       containers:
       - name: {{ .Values.service.name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
