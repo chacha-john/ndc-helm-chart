@@ -21,6 +21,3 @@ spec:
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         ports:
         - containerPort: {{ .Values.service.port }}
-        resources:
-          limits:
-            memory: "96Mi"
