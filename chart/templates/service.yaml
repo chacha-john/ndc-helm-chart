@@ -5,6 +5,7 @@ metadata:
     service: {{ .Values.service.name }}
   name: {{ .Values.application.name }}
 spec:
+  type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.port }}

@@ -10,10 +10,19 @@ imagePullPolicy: IfNotPresent
 replicaCount: 1
 
 image:
-  repository: nginx
-  tag: 1.19.0
+  repository: issachacha/demo-java
+  tag: latest
 
 service:
-  name: nginx-service
+  name: web-service
   port: 80
   type: ClusterIP
+
+config:
+  key1: value1
+  key2: value2
+  key3: value3
+
+secret:
+  username: admin
+  password: password
